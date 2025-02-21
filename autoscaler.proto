@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+service AutoScaler {
+    rpc GetMetrics (MetricsRequest) returns (MetricsResponse);
+    rpc ScalePods (ScaleRequest) returns (ScaleResponse);
+}
+
+message Empty {}
+
+message MetricsRequest {
+    string namespace = 1;
+}
+
+message MetricsResponse {
+    double cpu_usage = 2;
+    double memory_usage = 3;
+}
+
+message ScaleRequest {
+    string deployment_name = 1;
+    int32 replicas = 2;
+}
+
+message ScaleResponse {
+    string status = 1;    
+}

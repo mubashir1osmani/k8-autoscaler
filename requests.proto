@@ -1,0 +1,12 @@
+syntax="proto3";
+
+// here we take in a user request: messages, chatId, modelId
+// then Actions, takes in a dataset if provided, and performs data visualization etc.
+
+service Messages { 
+    rpc UserRequest (GetRequest) returns (UserResponse);
+    rpc Action (GetDatasets) returns (DataViz);
+}
+
+message Empty {}
+
